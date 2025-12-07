@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management - Mergington High School</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mergington High School</h1>
+      <h2>Student Management System</h2>
+      <nav style="margin-top: 15px;">
+        <a href="index.html" class="nav-link">← Back to Activities</a>
+      </nav>
+    </header>
+
+    <main class="admin-container">
+      <!-- Admin Check Notice -->
+      <div id="admin-notice" class="info-message">
+        <strong>Admin Access Only:</strong> This page is for administrators to manage student records.
+      </div>
+
+      <!-- Search and Filter Section -->
+      <section id="search-section">
+        <h3>Search & Filter Students</h3>
+        <div class="search-controls">
+          <div class="form-group">
+            <label for="search">Search:</label>
+            <input type="text" id="search" placeholder="Search by name or email..." />
+          </div>
+          <div class="form-group">
+            <label for="grade-filter">Filter by Grade:</label>
+            <select id="grade-filter">
+              <option value="">All Grades</option>
+              <option value="9">Grade 9</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+          </div>
+          <button id="export-btn" class="secondary-btn">Export to CSV</button>
+        </div>
+      </section>
+
+      <!-- Add/Edit Student Form -->
+      <section id="student-form-section">
+        <h3 id="form-title">Add New Student</h3>
+        <form id="student-form">
+          <input type="hidden" id="original-email" />
+          <div class="form-group">
+            <label for="student-name">Name:</label>
+            <input type="text" id="student-name" required placeholder="Full Name" />
+          </div>
+          <div class="form-group">
+            <label for="student-email">Email:</label>
+            <input type="email" id="student-email" required placeholder="student@mergington.edu" />
+          </div>
+          <div class="form-group">
+            <label for="student-grade">Grade:</label>
+            <select id="student-grade" required>
+              <option value="">Select Grade</option>
+              <option value="9">Grade 9</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="submit-btn">Add Student</button>
+            <button type="button" id="cancel-btn" class="secondary-btn" style="display:none;">Cancel</button>
+          </div>
+        </form>
+        <div id="form-message" class="hidden"></div>
+      </section>
+
+      <!-- Students List -->
+      <section id="students-section">
+        <h3>All Students</h3>
+        <div id="students-list">
+          <p>Loading students...</p>
+        </div>
+      </section>
+
+      <!-- Student Detail Modal -->
+      <div id="student-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3 id="modal-student-name">Student Details</h3>
+          <div id="modal-student-info"></div>
+          <h4>Activity History</h4>
+          <div id="modal-student-activities"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Mergington High School</p>
+    </footer>
+
+    <script src="students.js"></script>
+  </body>
+</html>
